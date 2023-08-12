@@ -5,7 +5,7 @@ jobs:
     docker:
       - image: cimg/openjdk:11.0
  
-    working_directory: ~/project/PetClinic  # Ścieżka do katalogu głównego z plikiem pom.xml
+    working_directory: ~/project/PetClinic
  
     environment:
       MAVEN_OPTS: -Xmx3200m
@@ -15,13 +15,12 @@ jobs:
  
       - restore_cache:
           keys:
-            - PetClinic-{{ "pom.xml" }}
-            - v1-dependecies-
+            - PetClinic-{{ checksum "" }}  # Zmiana klucza
  
       - save_cache:
           paths:
             - ~/.m2
-          key: PetClinic-{{ "pom.xml" }}
+          key: PetClinic-{{ checksum "" }}  # Zmiana klucza
  
       - run: mvn dependency:go-offline
  
