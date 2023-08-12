@@ -12,7 +12,7 @@ jobs:
     docker:
       - image: cimg/openjdk:11.0
  
-    working_directory: ~/Pet-Clinic
+    working_directory: ~/Pet-Clinic/PetClinic
  
     environment:
       # Customize the JVM maximum heap limit
