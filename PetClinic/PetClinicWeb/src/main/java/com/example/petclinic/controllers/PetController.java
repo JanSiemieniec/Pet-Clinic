@@ -83,40 +83,16 @@ public class PetController {
         return VIEWS_PETS_CREATE_OR_UPDATE_FORM;
     }
 
-    //    @PostMapping("/pets/{petId}/edit")
-//    public String processUpdateForm(@Valid Pet pet, BindingResult result, Owner owner, Model model) {
-//        if (result.hasErrors()) {
-//            pet.setOwner(owner);
-//            model.addAttribute("pet", pet);
-//            return VIEWS_PETS_CREATE_OR_UPDATE_FORM;
-//        } else {
-//            owner.getPets().add(pet);
-//            petService.save(pet);
-//            return "redirect:/owners/" + owner.getId();
-//        }
-//    }
     @PostMapping("/pets/{petId}/edit")
-    public String processUpdateForm(/*@Valid */Pet pet, BindingResult result, Owner owner, Model model) {
+    public String processUpdateForm(@Valid Pet pet, BindingResult result, Owner owner, Model model) {
         if (result.hasErrors()) {
             pet.setOwner(owner);
             model.addAttribute("pet", pet);
             return VIEWS_PETS_CREATE_OR_UPDATE_FORM;
         } else {
-            // check if you find pet for owner in database
-            Optional<Pet> foundPetOptional = owner.getPets().stream().filter(p -> p.getId() == pet.getId()).findFirst();
-
-            if (foundPetOptional.isPresent()) {
-                Pet foundPet = foundPetOptional.get();
-                foundPet.setName(pet.getName());
-                foundPet.setBirthDate(pet.getBirthDate());
-                foundPet.setVisits(pet.getVisits());
-                foundPet.setPetType(pet.getPetType());
-                foundPet.setOwner(owner);
-                ownerService.save(owner);
-                return "redirect:/owners/" + owner.getId();
-            } else {
-                throw new RuntimeException("No pet found with id: " + pet.getId());
-            }
+            owner.getPets().add(pet);
+            petService.save(pet);
+            return "redirect:/owners/" + owner.getId();
         }
     }
 
