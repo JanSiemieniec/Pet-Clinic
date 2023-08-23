@@ -1,0 +1,4 @@
+com\example\petclinic\controllers\OwnerControllerTest.class
+com\example\petclinic\controllers\PetControllerTest.class
+com\example\petclinic\PetClinicApplicationTests.class
+com\example\petclinic\controllers\VisitControllerTest.class
