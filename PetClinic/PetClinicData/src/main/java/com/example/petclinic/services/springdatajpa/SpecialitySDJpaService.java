@@ -1,6 +1,5 @@
 package com.example.petclinic.services.springdatajpa;
 
-import com.example.petclinic.model.Owner;
 import com.example.petclinic.model.Speciality;
 import com.example.petclinic.repositories.SpecialtyRepository;
 import com.example.petclinic.services.SpecialtyService;

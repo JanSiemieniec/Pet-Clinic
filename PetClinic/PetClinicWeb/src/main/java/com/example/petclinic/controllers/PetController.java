@@ -16,11 +16,8 @@ import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
-import java.util.Optional;
 
-/**
- * Created by jt on 9/22/18.
- */
+
 @Controller
 @RequestMapping("/owners/{ownerId}")
 public class PetController {

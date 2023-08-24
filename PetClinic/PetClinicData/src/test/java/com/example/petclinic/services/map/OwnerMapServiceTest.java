@@ -13,6 +13,7 @@ class OwnerMapServiceTest {
     final Long ownerId = 1L;
     final String lastName = "Smith";
     OwnerMapService ownerMapService;
+
     @BeforeEach
     void setUp() {
         ownerMapService = new OwnerMapService(new PetTypeMapService(), new PetMapService());

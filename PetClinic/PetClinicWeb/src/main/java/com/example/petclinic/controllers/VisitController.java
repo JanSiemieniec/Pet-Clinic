@@ -14,9 +14,7 @@ import java.beans.PropertyEditorSupport;
 import java.time.LocalDate;
 import java.util.Map;
 
-/**
- * Created by jt on 2018-09-27.
- */
+
 @Controller
 public class VisitController {
 
@@ -34,7 +32,7 @@ public class VisitController {
 
         dataBinder.registerCustomEditor(LocalDate.class, new PropertyEditorSupport() {
             @Override
-            public void setAsText(String text) throws IllegalArgumentException{
+            public void setAsText(String text) throws IllegalArgumentException {
                 setValue(LocalDate.parse(text));
             }
         });

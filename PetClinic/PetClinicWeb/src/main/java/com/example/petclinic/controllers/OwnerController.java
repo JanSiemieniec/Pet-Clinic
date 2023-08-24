@@ -10,12 +10,9 @@ import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
-//import javax.validation.Valid;
 import java.util.List;
 
-/**
- * Created by jt on 7/22/18.
- */
+
 @RequestMapping("/owners")
 @Controller
 public class OwnerController {
